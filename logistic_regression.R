@@ -15,18 +15,24 @@ input_a=sprintf("%s%s", loc_data_in, fn_a_in)
 input_b=sprintf("%s%s", loc_data_in, fn_b_in)
 output_log_glm=sprintf("%s%s", loc_log_glm_out, fn_log_glm_out)
 
-a<-read.csv(input_a, header=TRUE)
-b<-read.csv(input_b, header=TRUE)
+a<-as.matrix(read.csv(input_a, header=TRUE))
+b<-as.matrix(read.csv(input_b, header=TRUE))
 head(a)
 head(b)
-#assign data
-attach(a)
-attach(b)
-const<-as.numeric(rep("1",length(smoke)))
+##assign data
+#attach(a)
+#attach(b)
+#const<-as.numeric(rep("1",length(smoke)))
 
-#create X matrix
-X<-cbind(const, smoke)
+##create X matrix
+X<-a[,1]
+Y<-b[,2]
 
+XTX<-t(X)%*%X
+XTY<-t(X)%*%Y
+
+coeffs<- solve(XTX)%*%XTY
+ 
 #real answer###############################################
 answer<-glm(selfharm~smoke, family="binomial")
 summary(answer)
@@ -55,7 +61,7 @@ Number of Fisher Scoring iterations: 7
 ###############################################################
 
 #test<-t(X)%*%X
-#test2<-t(X)%*%N
+#Y<-t(X)%*%b
 
 
 ###################################################
