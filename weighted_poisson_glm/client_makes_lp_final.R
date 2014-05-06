@@ -56,6 +56,7 @@ wv<-as.matrix(wv)
 colnames(wv)<-"wv"
 
 write.table(lp_final, row.names=FALSE, sep=",", file = lp_final_out)
+write.table(mu, row.names=FALSE, sep=",", file = mu_out)
 write.table(wv, row.names=FALSE, sep=",", file = wv_out)
 write.table(W, row.names=FALSE, sep=",", file = W_out)
 
