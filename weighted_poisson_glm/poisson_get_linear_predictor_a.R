@@ -11,8 +11,12 @@ lp_a_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/lp_a.cs
 #read files in
 ###########################################
 
+#######
+#requires an args term for b1 to be input.  This will be 1 the first iteration and then will be automatically fed back in
+########
+
 data<-as.matrix(read.csv(a_in, header=TRUE))
-x_variables<-as.matrix(read.csv(x_variables_in, header=FALSE))#no header in file
+x_variables<-as.matrix(read.csv(x_variables_in, header=TRUE))#no header in file
 cv_a<-as.matrix(read.csv(cv_a_in, header=TRUE)) #cloaking vector a
 
 ##################################################

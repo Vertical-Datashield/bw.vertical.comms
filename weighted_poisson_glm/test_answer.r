@@ -18,9 +18,9 @@ attach(data)
 
 
 #assign data
-age.c<-a[,"age.c"]
-ht.c<-b[,"ht.c"]
-N<-b[,"N"]
+age.c<-data[,"age.c"]
+ht.c<-data[,"ht.c"]
+N<-data[,"N"]
 const<-as.numeric(rep("1",length(age.c)))
 
 #create X matrix
@@ -44,8 +44,8 @@ coeff.matrix<-matrix(NA,nrow=20,ncol=3)#output matrix
 
 #set coefficients
 b0.start=1
-b1.start=0
-b2.start=0
+b1.start=1
+b2.start=1
 
 icount=1
 

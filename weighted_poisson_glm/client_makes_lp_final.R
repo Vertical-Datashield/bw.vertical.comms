@@ -8,6 +8,9 @@ lp_ab_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/lp_ab.c
 
 
 lp_final_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/lp_final.csv"
+mu_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/mu.csv"
+wv_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/wv.csv"
+W_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/W.csv"
 ##########################
 #read data in
 cv_b<-as.matrix(read.csv(cv_b_in, header=TRUE)) #cloaking vector b
@@ -17,7 +20,7 @@ lp_ab<-as.matrix(read.csv(lp_ab_in, header=TRUE))
 const = 1 # will need to set this through args in subsequent iterations
 
 #######################################################
-#ad const (b0) and subtract cv_a and vc_b from each row
+#add const (b0) and subtract cv_a and vc_b from each row
 ########################################################
 lp_final<-rep(NA, length(lp_ab))
 
@@ -38,14 +41,22 @@ mu<-as.matrix(mu)
 colnames(mu)<-"mu"
 
 ############################################################
-#calculate weight vector and weight matrix
+#calculate weight vector (wv) and weight matrix (W)
 ############################################################
-
+wv<-rep(NA, length(lp_final))
 for (i in 1:length(lp_ab)){
 wv[i]<-1/(mu[i]*((1/mu[i])^2))
 }
 
-W<-diag(wv)
 head(wv)
+
+W<-diag(wv)
+
+wv<-as.matrix(wv)
+colnames(wv)<-"wv"
+
+write.table(lp_final, row.names=FALSE, sep=",", file = lp_final_out)
+write.table(wv, row.names=FALSE, sep=",", file = wv_out)
+write.table(W, row.names=FALSE, sep=",", file = W_out)
 
 
