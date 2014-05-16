@@ -7,7 +7,10 @@
 a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/b.csv"
 x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/x_variables.csv"
 beta_table_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/beta.csv"
+
 m_betaa_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/m_betab.csv"
+ma_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mb.csv"
+
 
 ####################################
 #read in data
@@ -58,7 +61,7 @@ m_beta.a[i]<-mask[i] + (betas[1] * a[i])
 }
 
 write.table(m_beta.a, row.names=FALSE, sep=",", file = m_betaa_out)
-
+write.table(mask, row.names=FALSE, sep=",", file = ma_out)
 
 
 

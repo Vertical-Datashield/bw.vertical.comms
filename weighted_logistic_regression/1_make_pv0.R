@@ -3,7 +3,9 @@
 ##################################################################
 beta_table_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/beta.csv"
 n_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/n.csv"
+
 pv0_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/pv0.csv"
+m0_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/m0.csv"
 
 beta_table<-as.matrix(read.csv(beta_table_in, header=TRUE))
 n<-as.matrix(read.csv(n_in, header=TRUE))
@@ -25,7 +27,7 @@ pv0[i]<-mask[i] + betas[1]
 }
 
 write.table(pv0, row.names=FALSE, sep=",", file = pv0_out)
-
+write.table(mask, row.names=FALSE, sep=",", file = m0_out)
 
 
 
