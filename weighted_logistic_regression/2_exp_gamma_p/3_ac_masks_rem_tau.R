@@ -11,6 +11,8 @@ w_1_exp_gammap_tau_expp_out="/home/rw13742/Documents/datashield/testing/vertical
 
 w_exp_gammap_tau_expp_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/w_exp_gammap_tau_expp.csv"
 
+omega_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/omega.csv"
+
 exp_gammap_tau_expp<-as.matrix(read.csv(exp_gammap_tau_expp_in, header=TRUE))
 tau<-as.matrix(read.csv(tau_in, header=TRUE))
 
@@ -36,5 +38,5 @@ w_exp_gammap_tau_expp <- omega * exp_gammap_expp # w* product
 
 write.table(w_1_exp_gammap_tau_expp, row.names=FALSE, sep=",", file = w_1_exp_gammap_tau_expp_out)
 write.table(w_exp_gammap_tau_expp, row.names=FALSE, sep=",", file = w_exp_gammap_tau_expp_out)
-
+write.table(omega, row.names=FALSE, sep=",", file = omega_out)
 
