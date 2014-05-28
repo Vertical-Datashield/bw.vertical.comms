@@ -41,7 +41,7 @@ M<-exp_p/w_1_exp_gammap_tau_expp
 #####################################################
 
 Rb<-runif(n[1],2,100) 
-k<- runif(n[1], 5,1000)
+k<- runif(1, 5,1000) #need just a single value
 
 ####################################################
 #subset relevant variables in study b
