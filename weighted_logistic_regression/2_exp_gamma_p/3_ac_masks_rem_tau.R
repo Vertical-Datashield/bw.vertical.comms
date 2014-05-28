@@ -7,7 +7,7 @@ exp_gammap_tau_expp_in="/home/rw13742/Documents/datashield/testing/vertical_comm
 
 tau_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/tau.csv"
 
-w_1_exp_gammap_tau_expp_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/1_w_exp_gammap_tau_expp.csv"
+w_1_exp_gammap_tau_expp_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/w_1_exp_gammap_tau_expp.csv"
 
 w_exp_gammap_tau_expp_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/w_exp_gammap_tau_expp.csv"
 
