@@ -11,4 +11,6 @@ create_beta_table.R
 /2_exp_gamma_p/2_frst_study_expp_tau_exo_gammap.R #on first study product of previous script with product of first study. sent to AC
 /2_exp_gamma_p/3_ac_masks_rem_tau.R # AC masks and removes tau from product and sends to S1 and S2/
 /3_pass_masked_data_around_sources/1_study1_makemat21_mat22.R #Study 1 (varibale b) makes mat21, mat22, Rb and k passes products to study 2 (holding variable a).
+/3_pass_masked_data_around_sources/2_study2_makemat41_mat42.R #Study 2 (varibale 1) makes mat41, mat42
+/3_pass_masked_data_around_sources/3_ac_calcs_AtWB.R #final calculation of AtWB
 
