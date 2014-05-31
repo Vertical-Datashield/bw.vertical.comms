@@ -6,7 +6,7 @@ mat41_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.da
 mat42_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat42.csv"
 k_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/k.csv"
 
-AtWB_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/AtWB_out.csv"
+AtWB_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/AtWB.csv"
 
 mat41<-as.matrix(read.csv(mat41_in, header=TRUE))
 mat42<-as.matrix(read.csv(mat42_in, header=TRUE))

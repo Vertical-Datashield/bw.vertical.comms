@@ -7,7 +7,7 @@ mat22_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.da
 
 a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/a.csv"
 
-w_exp_gammap_tau_expp_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/w_exp_gammap_tau_expp.csv"
+J_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/J.csv"
 
 n_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/n.csv"
 
@@ -19,7 +19,7 @@ mat41_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.d
 
 mat42_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat42.csv"
 
-w_exp_gammap_tau_expp<-as.matrix(read.csv(w_exp_gammap_tau_expp_in, header=TRUE))
+J<-as.matrix(read.csv(J_in, header=TRUE))
 n<-as.matrix(read.csv(n_in, header=TRUE))
 data<-as.matrix(read.csv(a_in, header=TRUE))
 x_variables<-as.matrix(read.csv(x_variables_in, header=TRUE))
@@ -51,7 +51,7 @@ head(a) #subset of data that contains all x_variables in this study
 ################################
 #create L by dividing exp(pv2) by weighted product from AC
 ################################
-L<-exp(pv2)/w_exp_gammap_tau_expp
+L<-exp(pv2)/J
 #############################################
 # create mat41 and mat42
 #############################################
