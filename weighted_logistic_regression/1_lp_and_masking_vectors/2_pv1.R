@@ -5,7 +5,7 @@ pv0_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data
 
 n_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/n.csv"
 
-m_betaa_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/m_betab.csv"
+m_betaa_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/m_betaa.csv"
 
 pv1_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/pv1.csv"
 
