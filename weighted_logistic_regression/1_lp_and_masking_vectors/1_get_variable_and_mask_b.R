@@ -8,8 +8,8 @@ a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/s
 x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/x_variables.csv"
 beta_table_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/beta.csv"
 
-m_betaa_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/m_betab.csv"
-ma_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mb.csv"
+mv1_betab_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mv1_betab.csv"
+mv1_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mv1.csv"
 
 
 ####################################
@@ -47,7 +47,7 @@ head(a) #subset of data that contains all x_variables in this study
 #be square dims of ncol(a)
 #########################################
 mask <- runif(nrow(a), 1, 10) #masking vector must be same as length of each column in a
-x_variable_number<- c(1) #will need to use args to insert the order here
+x_variable_number<- c(2) #will need to use args to insert the order here
 beta_col<- x_variable_number + 1
 iteration_number<-1 #will need to use args to insert which iteration we are on for the glm
 betas<-beta_table[iteration_number,beta_col]
@@ -55,13 +55,13 @@ betas<-as.matrix(betas)
 print(betas)
 
 #need to automate expanding number of betas and explanetory variables
-m_beta.a<-rep(NA, ncol(a))
+mv1_betab<-rep(NA, ncol(a))
 for (i in 1:nrow(a)){
-m_beta.a[i]<-mask[i] + (betas[1] * a[i])
+mv1_betab[i]<-mask[i] + (betas[1] * a[i])
 }
 
-write.table(m_beta.a, row.names=FALSE, sep=",", file = m_betaa_out)
-write.table(mask, row.names=FALSE, sep=",", file = ma_out)
+write.table(mv1_betab, row.names=FALSE, sep=",", file = mv1_betab_out)
+write.table(mask, row.names=FALSE, sep=",", file = mv1_out)
 
 
 

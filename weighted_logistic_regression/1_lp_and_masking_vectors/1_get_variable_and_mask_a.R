@@ -5,9 +5,9 @@ a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/s
 x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/x_variables.csv"
 beta_table_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/beta.csv"
 
-m_betaa_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/m_betaa.csv"
+mv2_betaa_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mv2_betaa.csv"
 n_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/n.csv"
-ma_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/ma.csv"
+mv2_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mv2.csv"
 
 ####################################
 #read in data
@@ -52,14 +52,14 @@ betas<-as.matrix(betas)
 print(betas)
 
 #need to automate expanding number of betas and explanetory variables
-m_beta.a<-rep(NA, ncol(a))
+mv2_betaa<-rep(NA, ncol(a))
 for (i in 1:nrow(a)){
-m_beta.a[i]<-mask[i] + (betas[1] * a[i])
+mv2_betaa[i]<-mask[i] + (betas[1] * a[i]) #mv2 + beta1*x1
 }
 
-write.table(m_beta.a, row.names=FALSE, sep=",", file = m_betaa_out)
+write.table(mv2_betaa, row.names=FALSE, sep=",", file = mv2_betaa_out)
 write.table(nrow(a), row.names=FALSE, sep=",", file = n_out) #to send to analysis computer
-write.table(mask, row.names=FALSE, sep=",", file = ma_out)
+write.table(mask, row.names=FALSE, sep=",", file = mv2_out) #mv2
 
 
 
