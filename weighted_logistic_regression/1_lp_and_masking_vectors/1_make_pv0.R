@@ -20,10 +20,12 @@ betas<-beta_table[iteration_number,beta_col]
 betas<-as.matrix(betas)
 print(betas)
 
+C<- rep(1, n[1]) #column of 1s
+
 pv0<-rep(NA, n[1])
 
 for (i in 1:(n[1])){
-pv0[i]<-mask[i] + betas[1]
+pv0[i]<-mask[i] + betas[1]*C[i]
 }
 
 write.table(pv0, row.names=FALSE, sep=",", file = pv0_out)
