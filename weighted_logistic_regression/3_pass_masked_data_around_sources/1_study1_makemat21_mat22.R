@@ -1,7 +1,9 @@
 ###########################################
 # First study prepares a masked dataset 
 #including a weight element to the second study.
-#outputs: k, mat21, mat22, Rb
+# For A.B : study a creates Rb (random variable) and masks its data with that.
+# For A.A: study a creates Rk (random) and masks its data with that.
+#new variables created: k, mat21, mat22, Rb, Rk, Rk_a
 #################################################
 
 p1_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/p1.csv" #p to make exp(p)
@@ -22,6 +24,7 @@ mat22_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.d
 
 Rb_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/Rb.csv"
 
+
 K<-as.matrix(read.csv(K_in, header=TRUE))
 p1<-as.matrix(read.csv(p1_in, header=TRUE))
 n<-as.matrix(read.csv(n_in, header=TRUE))
@@ -35,7 +38,7 @@ exp_p<-exp(p1)
 M<-exp_p/K
 
 ##############################################
-# Generate Rb (random vector) and k (random scalar)
+# Generate Rb and Rk (random vectors) and k (random scalar)
 #to add to the study data before sending it to
 # the second study.
 #####################################################
