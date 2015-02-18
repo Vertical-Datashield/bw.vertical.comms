@@ -3,7 +3,7 @@
 #including a weight element to the second study.
 # For A.B : study a creates Rb (random variable) and masks its data with that.
 # For A.A: study a creates Rk (random) and masks its data with that.
-#new variables created: k, mat21, mat22, Rb, Rk, Rk_a
+#new variables created: k, mat21, mat22, Rb, Rk, Rk_a, mat51, mat52
 #################################################
 
 p1_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/p1.csv" #p to make exp(p)
@@ -15,6 +15,10 @@ n_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/s
 b_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/b.csv"
 
 x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/x_variables.csv"
+
+U_Rk_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/U_Rk.csv"
+
+Rk_a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/Rk_a.csv"
 
 k_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/k.csv"
 
@@ -30,6 +34,8 @@ p1<-as.matrix(read.csv(p1_in, header=TRUE))
 n<-as.matrix(read.csv(n_in, header=TRUE))
 data<-as.matrix(read.csv(b_in, header=TRUE))
 x_variables<-as.matrix(read.csv(x_variables_in, header=TRUE))
+U_Rk<-as.matrix(read.csv(U_Rk_in, header=TRUE))
+Rk_a<-as.matrix(read.csv(Rk_a_in, header=TRUE))
 
 ################################################
 #divide exp(p) by what comes from analysis comp
@@ -68,7 +74,7 @@ colnames(b)<-b_names
 head(b) #subset of data that contains all x_variables in this study
 
 #############################################
-#calculate two masked study matrices
+#calculate two masked study matrices mat21 and mat22 for AtWB
 #############################################
 
 mat21<-M*Rb
@@ -76,6 +82,14 @@ mat22<-M*k*(b+Rb)
 colnames(mat21)<-"mat21"
 colnames(mat22)<-"mat22"
 
+
+#############################################
+#calculate two masked study matrices mat51 and mat52 for AtWA
+#############################################
+mat51<-M*U_Rk
+mat52<-M*k*Rk_a
+colnames(mat51)<-"mat51"
+colnames(mat52)<-"mat52"
 ###############################################
 #write outputs
 ###########################################
