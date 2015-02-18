@@ -12,6 +12,8 @@ x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/t
 
 Rk_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/Rk.csv"
 
+U_Rk_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/U_Rk.csv"
+
 Rk_a_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/Rk_a.csv"
 
 n<-as.matrix(read.csv(n_in, header=TRUE))
@@ -19,12 +21,18 @@ data<-as.matrix(read.csv(a_in, header=TRUE))
 x_variables<-as.matrix(read.csv(x_variables_in, header=TRUE))
 
 ##############################################
-# Generate Rk (random vector)
+# Generate Rk (random vector) and U (random scalar)
 #to add to the study data before sending it to
 # the second study.
 #####################################################
 
 Rk<-runif(n[1],2,100) 
+U<- runif(1, 2,100)
+U_Rk<-U*Rk
+
+#check mask
+#head(Rk)
+#head(U_Rk)
 
 ####################################################
 #subset relevant variables in study b
@@ -56,3 +64,4 @@ Rk_a<- a + Rk
 #write outputs
 ###########################################
 write.table(Rk_a, row.names=FALSE, sep=",", file = Rk_a_out)
+write.table(U_Rk, row.names=FALSE, sep=",", file = U_Rk_out)
