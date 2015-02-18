@@ -1,5 +1,6 @@
 ########################
-#output: mat41, mat42
+# create the following matrices 
+#output: mat41, mat42, mat151, mat11, mat12
 #########################
 mat21_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat21.csv"
 
@@ -23,7 +24,9 @@ mat41_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.d
 
 mat42_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat42.csv"
 
-mat151_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat151.csv"
+mat11_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat11.csv"
+
+mat12_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat12.csv"
 
 J<-as.matrix(read.csv(J_in, header=TRUE))
 n<-as.matrix(read.csv(n_in, header=TRUE))
@@ -71,10 +74,17 @@ mat42=t(a)%*%(L*mat22)
 #############################################
 mat151=mat51/U
 
+#############################################
+# create mat11 and mat12
+###############################################
+mat11=t(a)%*%(L*mat151)
+mat12=t(a)%*%(L*mat52)
+
 ################################
 #write to files
 ################################
 
 write.table(mat41, row.names=FALSE, sep=",", file = mat41_out)
 write.table(mat42, row.names=FALSE, sep=",", file = mat42_out)
-write.table(mat151, row.names=FALSE, sep=",", file = mat151_out)
+write.table(mat11, row.names=FALSE, sep=",", file = mat11_out)
+write.table(mat12, row.names=FALSE, sep=",", file = mat12_out)
