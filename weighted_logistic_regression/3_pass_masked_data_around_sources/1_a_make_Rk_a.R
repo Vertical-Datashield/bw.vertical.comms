@@ -14,6 +14,8 @@ Rk_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data
 
 U_Rk_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/U_Rk.csv"
 
+U_Rk_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/U.csv"
+
 Rk_a_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/Rk_a.csv"
 
 n<-as.matrix(read.csv(n_in, header=TRUE))
@@ -65,3 +67,4 @@ Rk_a<- a + Rk
 ###########################################
 write.table(Rk_a, row.names=FALSE, sep=",", file = Rk_a_out)
 write.table(U_Rk, row.names=FALSE, sep=",", file = U_Rk_out)
+write.table(U, row.names=FALSE, sep=",", file = U_out)
