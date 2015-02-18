@@ -1,7 +1,7 @@
 ###########################################
 # study a prepares a masked dataset 
 # For A.B : study a creates Rb (random variable) and masks its data with that.
-#new variables created: Rk, Rk_a
+#new variables created: Rk, Rk_a, U, U_Rk
 #################################################
 
 n_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/n.csv"
