@@ -15,9 +15,15 @@ x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/t
 
 pv2_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/pv2.csv"
 
+mat51_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat51.csv"
+
+U_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/U.csv"
+
 mat41_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat41.csv"
 
 mat42_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat42.csv"
+
+mat151_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mat151.csv"
 
 J<-as.matrix(read.csv(J_in, header=TRUE))
 n<-as.matrix(read.csv(n_in, header=TRUE))
@@ -26,6 +32,8 @@ x_variables<-as.matrix(read.csv(x_variables_in, header=TRUE))
 mat21<-as.matrix(read.csv(mat21_in, header=TRUE))
 mat22<-as.matrix(read.csv(mat22_in, header=TRUE))
 pv2<-as.matrix(read.csv(pv2_in, header=TRUE))
+mat51<-as.matrix(read.csv(mat51_in, header=TRUE))
+U<-as.matrix(read.csv(U_in, header=TRUE))
 #################################################
 #subset variables needed from study a
 #################################################
@@ -58,10 +66,15 @@ L<-exp(pv2)/J
 mat41=t(a)%*%(L*mat21)
 mat42=t(a)%*%(L*mat22)
 
+#############################################
+# create mat151
+#############################################
+mat151=mat51/U
+
 ################################
 #write to files
 ################################
 
 write.table(mat41, row.names=FALSE, sep=",", file = mat41_out)
 write.table(mat42, row.names=FALSE, sep=",", file = mat42_out)
-
+write.table(mat151, row.names=FALSE, sep=",", file = mat151_out)
