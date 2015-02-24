@@ -1,8 +1,0 @@
-Package: verticalglm
-Maintainer: <becca.wilson@bristol.ac.uk>
-Author: <becca.wilson@bristol.ac.uk>
-Version: 0.1
-License: GPL-3
-Title: Vertical DataSHIELD function for weighted logistic regression modelling
-Description: Vertical DataSHIELD function for weighted logistic regression modellin
-Depends:
