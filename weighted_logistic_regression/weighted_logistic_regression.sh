@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
-create_beta_table.R
-/1_lp_and_masking_vectors/1_get_variable_and_mask_a.R # study 1: output (masking vector * study variables) and masking vector
-/1_lp_and_masking_vectors/1_get_variable_and_mask_b.R # study 2: output (masking vector * study variables) and masking vector
+R CMD BATCH create_beta_table.R
+/1_lp_and_masking_vectors/1_get_variable_and_mask_a.R # explanatory variables in study 1: output (masking vector * study variables) and masking vector
+/1_lp_and_masking_vectors/1_get_variable_and_mask_b.R # explanatory variables in study 2: output (masking vector * study variables) and masking vector
 /1_lp_and_masking_vectors/1_make_pv0.R # analysis computer creates PV0
 /1_lp_and_masking_vectors/2_pv1.R # pv0 + (beta * (masking vector*study variable))
 /1_lp_and_masking_vectors/3_pv2.R # pv1 + (beta * (masking vector*study variable))

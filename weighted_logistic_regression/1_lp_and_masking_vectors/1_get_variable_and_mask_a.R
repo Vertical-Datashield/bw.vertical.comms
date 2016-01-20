@@ -1,8 +1,8 @@
 ###############################################################
 # identify which variables are in a study a and mask them
 ###############################################################
-a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/a.csv"
-x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/x_variables.csv"
+a_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/starting_files/a.csv"
+x_variables_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/starting_files/x_variables.csv"
 beta_table_in="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/beta.csv"
 
 mv2_betaa_out="/home/rw13742/Documents/datashield/testing/vertical_comms/data/test.data/simulated_self_harm_data/mv2_betaa.csv"
@@ -44,9 +44,16 @@ head(a) #subset of data that contains all x_variables in this study
 #be square dims of ncol(a)
 #########################################
 mask <- runif(nrow(a), 1, 10) #masking vector must be same as length of each column in a
-x_variable_number<- c(1) #will need to use args to insert the order here
+
+###########################################################################
+x_variable_number<- c(1) #will need to use args to insert the order here  #
+###########################################################################
+
 beta_col<- x_variable_number + 1
-iteration_number<-1 #will need to use args to insert which iteration we are on for the glm
+
+#############################################################################################
+iteration_number<-1 #will need to use args to insert which iteration we are on for the glm  #
+#############################################################################################
 betas<-beta_table[iteration_number,beta_col]
 betas<-as.matrix(betas)
 print(betas)
